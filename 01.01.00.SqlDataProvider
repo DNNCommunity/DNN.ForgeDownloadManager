@@ -1,0 +1,24 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/** Create Table **/
+
+ALTER TABLE {databaseOwner}[{objectQualifier}ForgeLinkSettings]
+ADD [AltTemplate] [nvarchar](max) NOT NULL DEFAULT ('')
+
+GO
+
+/** Create Stored Procedures **/
+
+-- No SPROCS.  Module uses LINQ to SQL.
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/

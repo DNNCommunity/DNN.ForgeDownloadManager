@@ -1,0 +1,44 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/** Drop FAQs Table **/
+
+ALTER TABLE {databaseOwner}[{objectQualifier}YourCompany_ForgeDownloads] DROP CONSTRAINT [FK_{objectQualifier}ForgeDownloads_{objectQualifier}Modules]
+GO
+
+ALTER TABLE {databaseOwner}[{objectQualifier}YourCompany_ForgeDownloads] DROP CONSTRAINT [PK_{objectQualifier}YourCompany_ForgeDownloads]
+GO
+
+DROP INDEX {databaseOwner}[{objectQualifier}YourCompany_ForgeDownloads].[IX_{objectQualifier}YourCompany_ForgeDownloads]
+GO
+
+DROP TABLE {databaseOwner}[{objectQualifier}YourCompany_ForgeDownloads]
+GO
+
+/** Drop Stored Procedures **/
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}YourCompany_GetForgeDownloadss]
+GO
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}YourCompany_GetForgeDownloads]
+GO
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}YourCompany_AddForgeDownloads]
+GO
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}YourCompany_UpdateForgeDownloads]
+GO
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}YourCompany_DeleteForgeDownloads]
+GO
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/

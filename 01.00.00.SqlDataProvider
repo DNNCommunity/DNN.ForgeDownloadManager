@@ -1,0 +1,66 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/** Create Table **/
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}ForgeLinkSettings]') and OBJECTPROPERTY(id, N'IsTable') = 1)
+	BEGIN
+        CREATE TABLE {databaseOwner}[{objectQualifier}ForgeLinkSettings]
+        (
+	        [ForgeSettingsId] [int] IDENTITY(1,1) NOT NULL,
+	        [ModuleId] [int] NOT NULL,
+	        [ProjectName] [nvarchar](50) NOT NULL,
+	        [ReleaseId] [int] NOT NULL,
+	        [Template] [nvarchar](max) NOT NULL
+        )
+
+        ALTER TABLE {databaseOwner}[{objectQualifier}ForgeLinkSettings] WITH NOCHECK ADD CONSTRAINT [PK_{objectQualifier}ForgeLinkSettings] PRIMARY KEY CLUSTERED ([ForgeSettingsId] ASC)
+	END
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}ForgeLinkTemplate]') and OBJECTPROPERTY(id, N'IsTable') = 1)
+	BEGIN
+        CREATE TABLE {databaseOwner}[{objectQualifier}ForgeLinkTemplate]
+        (
+	        [ForgeTemplateId] [int] IDENTITY(1,1) NOT NULL,
+	        [ModuleId] [int] NOT NULL,
+	        [Name] [nvarchar](50) NOT NULL,
+	        [Template] [nvarchar](500) NOT NULL
+        )
+        ALTER TABLE {databaseOwner}[{objectQualifier}ForgeLinkTemplate] WITH NOCHECK ADD CONSTRAINT [PK_{objectQualifier}ForgeLinkTemplate] PRIMARY KEY CLUSTERED ([ForgeTemplateId] ASC)
+	END
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}ForgeLink]') and OBJECTPROPERTY(id, N'IsTable') = 1)
+	BEGIN
+        CREATE TABLE {databaseOwner}[{objectQualifier}ForgeLink]
+        (
+	        [ForgeLinkId] [int] IDENTITY(1,1) NOT NULL,
+	        [ModuleId] [int] NOT NULL,
+	        [Label] [nvarchar](50) NOT NULL,
+	        [FileId] [int] NOT NULL,
+	        [ForgeTemplateId] [int] NOT NULL,
+	        [Active] [bit] NOT NULL
+        )
+
+        ALTER TABLE {databaseOwner}[{objectQualifier}ForgeLink] WITH NOCHECK ADD CONSTRAINT [PK_{objectQualifier}ForgeLink] PRIMARY KEY CLUSTERED ([ForgeLinkId] ASC)
+        ALTER TABLE {databaseOwner}[{objectQualifier}ForgeLink] WITH NOCHECK ADD  CONSTRAINT [FK_{objectQualifier}ForgeLink_{objectQualifier}ForgeLinkTemplate] FOREIGN KEY([ForgeTemplateId]) REFERENCES {databaseOwner}[{objectQualifier}ForgeLinkTemplate] ([ForgeTemplateId])
+        ALTER TABLE {databaseOwner}[{objectQualifier}ForgeLink] ADD CONSTRAINT [DF_{objectQualifier}ForgeLink_Active]  DEFAULT ((0)) FOR [Active]
+	END
+GO
+
+
+/** Create Stored Procedures **/
+
+-- No SPROCS.  Module uses LINQ to SQL.
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ForgeLinks">
+  <DataContextMoniker Name="/ForgeLinksDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5d45bb66-d37d-4d8e-828e-8106b86d49eb" absoluteBounds="0.875, 0.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ForgeLinksDataContext/ForgeLink" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7e183f64-d36a-4602-91d4-e433b2116755" absoluteBounds="0.88999999999999968, 1.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7d74a77e-ae1b-4e86-a9e5-4c5c912b3a6f" absoluteBounds="1, 3.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ForgeLinksDataContext/ForgeLinkTemplate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b521adfc-a2e4-4006-b869-575305e25090" absoluteBounds="1.0149999999999997, 4.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.9375 : 3.625); (1.9375 : 2.5881982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ForgeLinksDataContext/ForgeLinkTemplate/ForgeLinkTemplate_ForgeLink" />
+      <nodes>
+        <classShapeMoniker Id="7d74a77e-ae1b-4e86-a9e5-4c5c912b3a6f" />
+        <classShapeMoniker Id="5d45bb66-d37d-4d8e-828e-8106b86d49eb" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="baf5e868-dbfc-4886-b668-d86a215a5fe2" absoluteBounds="3.625, 0.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ForgeLinksDataContext/ForgeLinkSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="40219f44-74ed-4ef9-95ee-e3646b1b9348" absoluteBounds="3.6399999999999997, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
